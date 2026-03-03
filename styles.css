@@ -24,6 +24,7 @@ body {
     line-height: 1.6;
     color: var(--dark);
     background: var(--white);
+    padding-top: 70px; /* Offset for fixed header */
 }
 
 h1, h2, h3 {
@@ -59,7 +60,7 @@ h1, h2, h3 {
     width: 100%;
     background: rgba(255,255,255,0.98);
     z-index: 1000;
-    padding: 15px 0;
+    padding: 12px 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -72,12 +73,19 @@ h1, h2, h3 {
     align-items: center;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .brand {
     font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
     color: var(--primary);
     text-decoration: none;
     letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .nav-links {
@@ -104,19 +112,32 @@ h1, h2, h3 {
     border-radius: var(--radius);
 }
 
+.mobile-phone-link {
+    display: none;
+    background: var(--accent);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .mobile-toggle {
     display: none;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
+    padding: 5px;
 }
 
 .mobile-toggle span {
     width: 25px;
     height: 3px;
     background: var(--primary);
+    transition: 0.3s;
 }
 
 /* Hero System */
@@ -178,6 +199,10 @@ h1, h2, h3 {
     background: var(--primary);
     color: var(--white);
     padding: 30px 24px;
+}
+
+.trust-item {
+    text-align: center;
 }
 
 .trust-item strong {
@@ -354,15 +379,23 @@ h1, h2, h3 {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-phone-link {
+        display: block;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 68px;
         left: 0;
         width: 100%;
         background: white;
         flex-direction: column;
-        padding: 40px 24px;
+        padding: 30px 24px;
         box-shadow: var(--shadow);
     }
 
@@ -382,8 +415,14 @@ h1, h2, h3 {
     .section {
         padding: 48px 0;
     }
+}
 
-    .hero-content h1 {
-        font-size: 2.8rem;
+@media (max-width: 480px) {
+    .brand {
+        font-size: 1.2rem;
+    }
+    .mobile-phone-link {
+        font-size: 0.8rem;
+        padding: 6px 10px;
     }
 }
